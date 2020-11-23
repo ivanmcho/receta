@@ -21,6 +21,13 @@ class AdminRecetaSerializer(serializers.HyperlinkedModelSerializer):
         model = Recetas
         fields = ('id', 'url','name','duracion')
 
+# Se crea un capo de recuentoIngrediente que es la suma de los ingredientes por receta
+class CountSerializer(serializers.HyperlinkedModelSerializer):
+    recuentoIngrediente = serializers.IntegerField()
+    class Meta:
+        model = Recetas
+        fields = ('id', 'url','name','recuentoIngrediente')
+
 """
 class CountIngredienteSerializer(serializers.Serializer):
    

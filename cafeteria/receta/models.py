@@ -1,6 +1,9 @@
 from django.db import models
 
-# Create your models here.
+# DetalleReceta es una tercer tabla para tener una relacion de muchos a muchos
+# Muchos Ingredientes pueden estar en muchas Recetas
+
+
 class Recetas(models.Model):
     name = models.CharField(max_length=30)
     duracion = models.PositiveIntegerField()
