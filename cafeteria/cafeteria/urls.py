@@ -15,12 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from api.api import UserAPI
 from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #CRUD de receta
     path('',include('receta.urls')),
-    #path('api-auth', include('rest_framework.urls')),
+    #Login User
+    path('api-auth', include('rest_framework.urls')),
+    #Create User
+    path('api/create_user/', UserAPI.as_view(), name='api_create_user')
     #path('api/token/',TokenObtainPairView.as_view()),
     #path('api/token/refresh/', TokenRefreshView.as_view())
 
